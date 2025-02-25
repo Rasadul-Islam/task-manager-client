@@ -8,7 +8,9 @@ import './index.css'
 import Root from './layout/Root/Root';
 import Home from './Pages/Home/Home';
 import LogIn from './Pages/LogIn/LogIn';
-import Register from './Pages/Register/Register';
+import Dashboard from './Pages/Dashboard/Dashboard';
+import AuthProviders from './providers/AuthProviders';
+import Profile from './Pages/Profile/Profile';
 
 const router = createBrowserRouter([
   {
@@ -25,14 +27,20 @@ const router = createBrowserRouter([
         element: <LogIn></LogIn>,
       },
       {
-        path: "register",
-        element: <Register></Register>,
+        path: "profile",
+        element: <Profile></Profile>,
+      },
+      {
+        path: "dashboard",
+        element: <Dashboard></Dashboard>,
       },
     ]
   },
 ]);
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+    <AuthProviders>
     <RouterProvider router={router} />
+    </AuthProviders>
   </StrictMode>,
 )
